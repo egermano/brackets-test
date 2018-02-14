@@ -102,10 +102,11 @@ function checkForBalance(str) {
     for (let index = 0; index < searchFor.length; index++) {
         const value = searchFor[index];
         
+        arr[index] = [0, 0];
+        
         for (let i = 0; i < str.length; i++) {
             const element = str[i];
 
-            arr[index] = [0, 0];
 
             if (element === value[0]) {
                 arr[index][0]++;
@@ -115,7 +116,7 @@ function checkForBalance(str) {
                 arr[index][1]++;
             }
 
-            // console.log(element, value, arr[index]);
+            console.log(element, value, arr[index]);
         }
 
         console.log(str, arr);
