@@ -1,8 +1,10 @@
 
-const findIndex = require('./main');
+const mod = require('./main');
 
 
 describe('findIndex', () => {
+
+    const findIndex = mod.findIndex;
 
     // string
     let input = '[ABC[23]][89]';
@@ -26,5 +28,31 @@ describe('findIndex', () => {
     it('bracket at 0 has no closing', () => {
         input = '[abc[123]'
         expect(findIndex(input, 0)).toBe(-1);
+    });
+});
+
+
+describe('findEqual', () => {
+    const findEqual = mod.findEqual;
+
+
+    it('is 9', () => {
+        input = '(()))(()()())))'
+        expect(findEqual(input)).toBe(9);
+    });
+
+    it('is 4', () => {
+        input = '(())))('
+        expect(findEqual(input)).toBe(4);
+    });
+
+    it('is 2', () => {
+        input = '))'
+        expect(findEqual(input)).toBe(2);
+    });
+
+    it('is 0', () => {
+        input = '(('
+        expect(findEqual(input)).toBe(0);
     });
 });
