@@ -56,3 +56,18 @@ describe('findEqual', () => {
         expect(findEqual(input)).toBe(0);
     });
 });
+
+describe('checkForBalance', () => {
+
+    const checkForBalance = mod.checkForBalance;
+
+    it('is true', () => {
+        input = '[()]{}{[()()]()}'
+        expect(checkForBalance(input)).toBe(true);
+    });
+
+    it('is false', () => {
+        input = '[[(])'
+        expect(checkForBalance(input)).toBe(false);
+    });
+})

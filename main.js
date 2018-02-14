@@ -87,4 +87,44 @@ function findEqual(str) {
     return index;
 }
 
-module.exports = { findIndex: findIndex, findEqual: findEqual};
+// Check for balanced parentheses in an expression
+
+function checkForBalance(str) {
+
+    let searchFor = [
+        ['(', ')'],
+        ['[', ']'],
+        ['{', '}']
+    ];
+
+    let arr = [];
+
+    for (let index = 0; index < searchFor.length; index++) {
+        const value = searchFor[index];
+        
+        for (let i = 0; i < str.length; i++) {
+            const element = str[i];
+
+            arr[index] = [0, 0];
+
+            if (element === value[0]) {
+                arr[index][0]++;
+            }
+
+            if (element === value[1]) {
+                arr[index][1]++;
+            }
+
+            // console.log(element, value, arr[index]);
+        }
+
+        console.log(str, arr);
+        if (arr[index][0] !== arr[index][1]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+module.exports = { findIndex: findIndex, findEqual: findEqual, checkForBalance: checkForBalance};
